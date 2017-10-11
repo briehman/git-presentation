@@ -36,7 +36,6 @@
                     <section>
                         <h2>Assumptions</h2>
                         <ul>
-                            <li>TODO: Revisit this after completion to see if this is true</li>
                             <li>Experience using Git in a moderate capacity.</li>
                         </ul>
                     </section>
@@ -54,7 +53,7 @@
                             <li>Git can make us better developers and researchers.</li>
                             <li>Git is not terribly user-friendly.</li>
                             <li>Using Git effectively requires knowledge and features and application of best practice.</li>
-                            <li>Best practices are relative and often discovered after using antipatterns.</li>
+                            <li>Best practices are relative and often discovered after being trapped by antipatterns.</li>
                         </ul>
                         <aside class="notes">
                             <ul>
@@ -63,10 +62,10 @@
                             </ul>
                         </aside>
                     </section>
-                    <section>
+                    <section data-background="images/principles-faded.jpg">
                         <h2>Goals</h2>
                         <ul>
-                            <li>Provide an understanding of how Git works internally to unlock development potential.</li>
+                            <li>Provide a basic understanding of how Git works internally.</li>
                             <li>Demonstrate how Git simplifies problems that were hard without DVCS.</li>
                             <li>Share tips I have gathered along the way.</li>
                             <li>Warn of pitalls that I have encountered.</li>
@@ -168,8 +167,7 @@
                             but no documents describing why things occurred.
                         </aside>
                     </section>
-                    <section>
-                        <!-- TODO - swiss army knife background? -->
+                    <section data-background="images/swiss-army-knife-faded.jpg">
                         <h2><code>git log</code></h2>
                         <p>Swiss army knife for searching across multiple commits.</p>
                     </section>
@@ -247,14 +245,14 @@
                     <section>
                         <h2>Cherry-picking</h2>
                         <ul>
-                            <li>Apply changes from a commit without merging.</li>
+                            <li>Apply changes from a commit without merging. Literally replays commit.</li>
                             <li>
                                 Avoid using this feature unless you have good reason.
-                                It pollutes history with changes.*
+                                It pollutes history with duplicate unrelated changes.*
                             </li>
                         </ul>
                     </section>
-                    <section>
+                    <section data-background="#FFDF00">
                         <h2>Commit in patches</h2>
                         <p>The <code>add</code> command accepts a <code>-p</code> or <code>--patch</code> flag
                         to add only <i>parts</i> of the code you have changed. This is a killer feature!
@@ -287,6 +285,8 @@
                             </ul>
                         </aside>
                     </section>
+                    <section data-background="images/git-rebase-vs-merge.png">
+                    </section>
                     <section>
                         <h2>Basic rebase scenarios</h2>
                         <ul>
@@ -300,6 +300,17 @@
                         <ul>
                             <li><code>git rebase dev</code> will replay all commits to the tip of dev without changes.</li>
                             <li><code>git rebase -i dev</code> will provide full control over how and what gets replayed.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Interactive rebase options</h2>
+                        <ul>
+                            <li>pick - keep as is</li>
+                            <li>edit - manually edit the commit</li>
+                            <li>reword - change the commit message</li>
+                            <li>squash / fixup - combine the change with the previous commit</li>
+                            <li>drop - remove the commit</li>
+                            <li>exec - run a command between commits (e.g. test)</li>
                         </ul>
                     </section>
                     <section data-background="#993333">
@@ -345,6 +356,9 @@
                             rebasing allows you to stay organized, cultivate your thoughts, and present them clearly
                             to others. This is the tool that makes Git useful.
                         </p>
+                        <aside class="notes">
+                            This is the key feature that stands out from central VCSes. Good luck, Subversion!
+                        </aside>
                     </section>
                     <section data-background="#339933">
                         <h2>Tip: <b>Re</b>use <b>Re</b>corded <b>Re</b>solution</h2>
@@ -363,7 +377,7 @@
                         </ul>
                         <aside class="notes">
                             I always forget long-term stashes and they usually get thrown away.
-                            Just make a branch.
+                            Just make a named branch if it's worth keeping.
                         </aside>
                     </section>
                 </section>
@@ -465,6 +479,8 @@
                             <li class="fragment">Q: Show me a word diff.</li>
                             <li class="fragment">A: <code>git [diff|show] --word-diff $commit</code></li>
                         </ul>
+                    </section>
+                    <section data-background="images/word-diff.png">
                     </section>
                 </section>
                 <section>
