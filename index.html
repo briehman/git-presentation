@@ -28,31 +28,18 @@
                     <section data-background="images/git-love-faded.png">
                         <h1>Git</h1>
                         <h6>Brian Riehman</h6>
+                        <p><a href="github.com/briehman/git-presentation">github.com/briehman/git-presentation</a></p>
                     </section>
                     <section data-background="images/git-love.png">
                     </section>
                 </section>
                 <section>
-                    <section>
-                        <h2>Assumptions</h2>
-                        <ul>
-                            <li>Experience using Git in a moderate capacity.</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Disclaimer</h2>
-                        <ul>
-                            <li>Knowledge gained over the years may become stale.</li>
-                            <li>New features may have addressed previous issues.</li>
-                            <li>Ask questions!</li>
-                        </ul>
-                    </section>
-                    <section>
+                    <section data-background="images/git-love-faded-85.png">
                         <h2>Why am I here?</h2>
                         <ul>
                             <li>Git can make us better developers and researchers.</li>
                             <li>Git is not terribly user-friendly.</li>
-                            <li>Using Git effectively requires knowledge and features and application of best practice.</li>
+                            <li>Using Git effectively requires knowledge of features and application of best practice.</li>
                             <li>Best practices are relative and often discovered after being trapped by antipatterns.</li>
                         </ul>
                         <aside class="notes">
@@ -62,8 +49,28 @@
                             </ul>
                         </aside>
                     </section>
+                    <section>
+                        <h2>Assumptions</h2>
+                        <ul>
+                            <li>Experience using Git in a moderate capacity.</li>
+                            <li>You want to learn more about Git!</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Preface</h2>
+                        <ul>
+                            <li>New releases may have addressed previous issues and made things better.</li>
+                            <li>Ask questions!</li>
+                        </ul>
+                    </section>
                     <section data-background="images/principles-faded.jpg">
-                        <h2>Goals</h2>
+                        <h2>Goal</h2>
+                        <ul>
+                            <li>Teach you at least 5 new things about Git.</li>
+                        </ul>
+                    </section>
+                    <section data-background="images/principles-faded.jpg">
+                        <h2>Outline</h2>
                         <ul>
                             <li>Provide a basic understanding of how Git works internally.</li>
                             <li>Demonstrate how Git simplifies problems that were hard without DVCS.</li>
@@ -79,7 +86,7 @@
                             Understanding the design will frame underlying operations.
                         </aside>
                     </section>
-                    <section>
+                    <section data-background="images/design-faded.jpg">
                         <!-- TODO: Come up with a picture that expresses this! -->
                         <h2>Principles</h2>
                         <ul>
@@ -107,8 +114,8 @@
                             <h2>Repository History</h1>
                             <ul>
                                 <li>Git tracks history using graphs.</li>
-                                <li>Commits are snapshots of current repository state.</li>
                                 <li>Repository is a graph representing history.</li>
+                                <li>Commits are snapshots of current repository state.</li>
                                 <li>Commits are nodes and the directed edges represent ancestry.</li>
                             </ul>
                         </div>
@@ -132,7 +139,7 @@
                     <section>
                         <h2>What we know:</h2>
                         <ul>
-                            <li>What git knows about.</li>
+                            <li>How git stores objects.</li>
                             <li>How git tracks history.</li>
                             <li>How to modify history.</li>
                         </ul>
@@ -141,13 +148,20 @@
                     </section>
                 </section>
                 <section>
+                    <section>
+                        <h2>Two modes of operation</h2>
+                        <ul>
+                            <li>Investigation</li>
+                            <li>Modification</li>
+                        </ul>
+                    </section>
                     <!-- Want to get better at Git:  use the staging area -->
                     <section data-background="images/batman-faded.jpg">
                         <div style="">
                             <h2>Investigation Usage</h2>
                         </div>
                     </section>
-                    <section data-background="images/batman-faded.jpg">
+                    <section data-background="images/batman-faded-85.jpg">
                         <h2>Primary investigation modes</h2>
                         <ul>
                             <li>Searching through history.</li>
@@ -157,11 +171,11 @@
                     </section>
                     <section data-background="#339933">
                         <h2>Tip:</h2>
-                        <p>Every Git research command operates on one or more refs or a range of refs.</p>
+                        <p>Every investigation command operates on one or more refs or a range of refs.</p>
                     </section>
                     <section data-background="#993333">
                         <h2>Pitfall:</h2>
-                        <p>Searching through history is only as good as the messages we write!</p>
+                        <p>Searching through history is only as good as the messages and commits have written.</p>
                         <aside class="notes">
                             Compare bad commit messages to the dark ages where we have found historic details
                             but no documents describing why things occurred.
@@ -218,7 +232,7 @@
                     <section>
                         <h2>Ways to improve</h2>
                         <ul>
-                            <li>Become deliberate when searching history.</li>
+                            <li>Be deliberate when searching history.</li>
                             <li>Read the git-log and git-diff manpages. Seriously!</li>
                         </ul>
                     </section>
@@ -262,8 +276,8 @@
                         <h2>Antipattern: Large or non-specific commits</h2>
                         <ul>
                             <li>
-                                Committing multiple sets of changes within a single commit removes options
-                                and makes code review more difficult.
+                                Committing multiple sets of changes within a single commit makes both review and
+                                future investigation more difficult.
                             </li>
                             <li>Long commit messages with lots of "ands" are the smell for this issue.</li>
                         </ul>
@@ -274,8 +288,8 @@
                     <section>
                         <h2>What is rebasing?</h2>
                         <ul>
+                            <li>One of the most powerful and maligned features in Git.</li>
                             <li>Replay commits starting at a certain point.</li>
-                            <li>One of the most powerful features in Git.</li>
                             <li>Basic usage is straight-forward and should be more common.</li>
                         </ul>
                         <aside class="notes">
@@ -352,7 +366,7 @@
                     <section data-background="#FFDF00">
                         <h2>Gem: Rebasing keeps your code organized.</h2>
                         <p>
-                            For developers that make mistakes and don't write the perfect software on the first try,
+                            For developers that make mistakes and don't write perfect software on the first try,
                             rebasing allows you to stay organized, cultivate your thoughts, and present them clearly
                             to others. This is the tool that makes Git useful.
                         </p>
@@ -408,7 +422,7 @@
                         <h2>Question 2. When did dev merge into this branch?</h2>
                         <ul>
                             <li class="fragment">Q: Show me merges on this timeline excluding <code>dev</code>.*</li>
-                            <li class="fragment">A: <code>git log base..branch --merges</code></li>
+                            <li class="fragment">A: <code>git log dev..branch --merges</code></li>
                         </ul>
                         <aside class="notes">
                             Will include other merges but for backstop this is typically only dev
@@ -417,10 +431,10 @@
                     <section>
                         <h2>Question 3. When did this commit get merged into the mainline?</h2>
                         <ul>
-                            <li class="fragment">T: Show me merges from this commit to the mainline</li>
-                            <li class="fragment">A: <code>git log $sha..HEAD --merges</code></li>
+                            <li class="fragment">T: Show me merges from this commit to dev</li>
+                            <li class="fragment">A: <code>git log $sha..dev --merges</code></li>
                             <li class="fragment">...but only directly from this commit</li>
-                            <li class="fragment">A: <code>git log $sha..HEAD --ancestry-path --merges</code></li>
+                            <li class="fragment">A: <code>git log $sha..dev --ancestry-path --merges</code></li>
                         </ul>
                         <aside class="notes">
                             TODO - Get a picture for this.
@@ -430,9 +444,9 @@
                         <h2>Question 3. When did this commit get merged into the mainline?</h2>
                         <ul>
                             <li>...and onto our specified branch</li>
-                            <li class="fragment">A: <code>git log $sha..HEAD --ancestry-path --merges --grep "into.*$dest"</code></li>
+                            <li class="fragment">A: <code>git log $sha..dev --ancestry-path --merges --grep "into.*$dest"</code></li>
                             <li class="fragment">...with reasonable output.</li>
-                            <li class="fragment">A: <code>git log $sha..HEAD --ancestry-path --oneline --merges --reverse --grep "into.*$dest" | head -1</code></li>
+                            <li class="fragment">A: <code>git log $sha..dev --ancestry-path --oneline --merges --reverse --grep "into.*$dest" | head -1</code></li>
                         </ul>
                     </section>
                     <section data-background="#339933">
@@ -497,6 +511,15 @@
                                 and <code>merge</code> both have one.
                             </li>
                         <ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Questions?</h2>
+                    </section>
+                    <section>
+                        <h2>Thank you!</h2>
+                        <p><a href="github.com/briehman/git-presentation">github.com/briehman/git-presentation</a></p>
                     </section>
                 </section>
             </div>
