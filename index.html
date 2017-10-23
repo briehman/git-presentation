@@ -72,10 +72,10 @@
                     <section data-background="images/principles-faded.jpg">
                         <h2>Outline</h2>
                         <ul>
-                            <li>Provide a basic understanding of how Git works internally.</li>
-                            <li>Demonstrate how Git simplifies problems that were hard without DVCS.</li>
-                            <li>Share tips I have gathered along the way.</li>
-                            <li>Warn of pitalls that I have encountered.</li>
+                            <li>Provide a basic understanding of how Git's internals.</li>
+                            <li>Apply those principles to day-to-day operations.</li>
+                            <li>Dig into the more useful Git features.</li>
+                            <li>Share gems, tips, and pitfalls along the way.</li>
                         </ul>
                     </section>
                 </section>
@@ -141,7 +141,7 @@
                         <ul>
                             <li>How git stores objects.</li>
                             <li>How git tracks history.</li>
-                            <li>How to modify history.</li>
+                            <li>How git modifies history.</li>
                         </ul>
                         <br/><br/>
                         <h6 class="fragment">That's all we need!</h6>
@@ -164,9 +164,8 @@
                     <section data-background="images/batman-faded-85.jpg">
                         <h2>Primary investigation modes</h2>
                         <ul>
-                            <li>Searching through history.</li>
-                            <li>Comparing trees in history.</li>
                             <li>Walking the commit graph in some way.</li>
+                            <li>Comparing trees/objects in history.</li>
                         </ul>
                     </section>
                     <section data-background="#339933">
@@ -175,7 +174,7 @@
                     </section>
                     <section data-background="#993333">
                         <h2>Pitfall:</h2>
-                        <p>Searching through history is only as good as the messages and commits have written.</p>
+                        <p>Searching through history is only as good as the messages and commits we have written.</p>
                         <aside class="notes">
                             Compare bad commit messages to the dark ages where we have found historic details
                             but no documents describing why things occurred.
@@ -183,7 +182,7 @@
                     </section>
                     <section data-background="images/swiss-army-knife-faded.jpg">
                         <h2><code>git log</code></h2>
-                        <p>Swiss army knife for searching across multiple commits.</p>
+                        <p>Walks the commit graph and searches across refs.</p>
                     </section>
                     <section>
                         <h2><code>git diff</code></h2>
@@ -302,6 +301,17 @@
                     <section data-background="images/git-rebase-vs-merge.png">
                     </section>
                     <section>
+                        <h2>Interactive rebase options</h2>
+                        <ul>
+                            <li>pick - keep as is</li>
+                            <li>edit - manually edit the commit</li>
+                            <li>reword - change the commit message</li>
+                            <li>squash / fixup - combine the change with the previous commit</li>
+                            <li>drop - remove the commit</li>
+                            <li>exec - run a command between commits (e.g. test)</li>
+                        </ul>
+                    </section>
+                    <section>
                         <h2>Basic rebase scenarios</h2>
                         <ul>
                             <li>Fixing commit messages</li>
@@ -315,28 +325,6 @@
                             <li><code>git rebase dev</code> will replay all commits to the tip of dev without changes.</li>
                             <li><code>git rebase -i dev</code> will provide full control over how and what gets replayed.</li>
                         </ul>
-                    </section>
-                    <section>
-                        <h2>Interactive rebase options</h2>
-                        <ul>
-                            <li>pick - keep as is</li>
-                            <li>edit - manually edit the commit</li>
-                            <li>reword - change the commit message</li>
-                            <li>squash / fixup - combine the change with the previous commit</li>
-                            <li>drop - remove the commit</li>
-                            <li>exec - run a command between commits (e.g. test)</li>
-                        </ul>
-                    </section>
-                    <section data-background="#993333">
-                        <h2>Antipattern: Fixup commits getting merged into dev*</h2>
-                        <p>
-                            We have complete control before something is in dev. Spliting required or relevant changes
-                            across commits splinters history, complicates research, and forces large reverts in the
-                            event of a problem.
-                        </p>
-                        <aside class="notes">
-                            * Caveat regarding merge conflict issues.
-                        </aside>
                     </section>
                     <section>
                         <h2>Rebase Pitfalls</h2>
@@ -364,7 +352,7 @@
                         </p>
                     </section>
                     <section data-background="#FFDF00">
-                        <h2>Gem: Rebasing keeps your code organized.</h2>
+                        <h2>Rebasing keeps your code organized.</h2>
                         <p>
                             For developers that make mistakes and don't write perfect software on the first try,
                             rebasing allows you to stay organized, cultivate your thoughts, and present them clearly
@@ -421,7 +409,7 @@
                     <section>
                         <h2>Question 2. When did dev merge into this branch?</h2>
                         <ul>
-                            <li class="fragment">Q: Show me merges on this timeline excluding <code>dev</code>.*</li>
+                            <li class="fragment">Q: Show me merges on this branch excluding <code>dev</code>.*</li>
                             <li class="fragment">A: <code>git log dev..branch --merges</code></li>
                         </ul>
                         <aside class="notes">
@@ -431,14 +419,11 @@
                     <section>
                         <h2>Question 3. When did this commit get merged into the mainline?</h2>
                         <ul>
-                            <li class="fragment">T: Show me merges from this commit to dev</li>
+                            <li class="fragment">Q: Show me merges from this commit to dev</li>
                             <li class="fragment">A: <code>git log $sha..dev --merges</code></li>
                             <li class="fragment">...but only directly from this commit</li>
                             <li class="fragment">A: <code>git log $sha..dev --ancestry-path --merges</code></li>
                         </ul>
-                        <aside class="notes">
-                            TODO - Get a picture for this.
-                        </aside>
                     </section>
                     <section data-transition="none">
                         <h2>Question 3. When did this commit get merged into the mainline?</h2>
