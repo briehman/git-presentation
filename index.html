@@ -115,7 +115,7 @@
                             <ul>
                                 <li>Git tracks history using graphs.</li>
                                 <li>Repository is a graph representing history.</li>
-                                <li>Commits are snapshots of current repository state.</li>
+                                <li>Commits are snapshots of repository state.</li>
                                 <li>Commits are nodes and the directed edges represent ancestry.</li>
                             </ul>
                         </div>
@@ -161,6 +161,17 @@
                             <h2>Investigation Usage</h2>
                         </div>
                     </section>
+                    <section data-background="images/timelords-faded-85.png">
+                        <h2>Tip: Be a Time Lord!</h2>
+                        <ul>
+                            <li>Utilize the power of complete history.</li>
+                            <li>Be careful when changing history.</li>
+                            <li>Understand your tools.</li>
+                        </ul>
+                        <aside class="notes">
+                            Discuss how IntelliJ can be helpful, but most of the power is in the CLI.
+                        </aside>
+                    </section>
                     <section data-background="images/batman-faded-85.jpg">
                         <h2>Primary investigation modes</h2>
                         <ul>
@@ -186,7 +197,7 @@
                     </section>
                     <section>
                         <h2><code>git diff</code></h2>
-                        <p>Primary tool for comparing contents between commits.</p>
+                        <p>Compares objects between refereences.</p>
                     </section>
                     <section>
                         <h2><code>git blame|annotate</code></h2>
@@ -197,7 +208,7 @@
                     </section>
                     <section data-background="#339933">
                         <h2>Tip:</h2>
-                        <p>Effective use of <code>diff</code> and <code>log</code> will answer most questions.</p>
+                        <p>Effective use of <code>log</code> and <code>diff</code> will answer most questions.</p>
                         <p class="fragment">Visualize what you are attempting to understand to determine how to
                         find that information.</p>
                     </section>
@@ -244,6 +255,13 @@
                         <h2>Cardinal rule:</h2>
                         <p>Every commit should be a focused change resulting in releasable software!</p>
                     </section>
+                    <section data-background="#339933">
+                        <h2>Tip: Rename your local branches!</h2>
+                        <p>
+                            Git will track the upstream branch name independently of the local name.
+                            Include context locally to simplify switching.
+                        </p>
+                    </section>
                     <section>
                         <h2>Reverting commits</h2>
                         <ul>
@@ -289,7 +307,7 @@
                         <ul>
                             <li>One of the most powerful and maligned features in Git.</li>
                             <li>Replay commits starting at a certain point.</li>
-                            <li>Basic usage is straight-forward and should be more common.</li>
+                            <li>Allows control over how to replay.</li>
                         </ul>
                         <aside class="notes">
                             <ul>
@@ -362,14 +380,6 @@
                             This is the key feature that stands out from central VCSes. Good luck, Subversion!
                         </aside>
                     </section>
-                    <section data-background="#339933">
-                        <h2>Tip: <b>Re</b>use <b>Re</b>corded <b>Re</b>solution</h2>
-                        <ul>
-                            <li>Git can remember your resolved conflict resolutions and automatically reapply them.</li>
-                            <li>This is great when rebasing or if there are merge conflicts.</li>
-                            <li><code>git config --global rerere.enabled 1</code></li>
-                        </ul>
-                    </section>
                     <section>
                         <h2>Stash</h2>
                         <ul>
@@ -386,17 +396,6 @@
                 <section>
                     <section>
                         <h2>Questions and Tips</h2>
-                    </section>
-                    <section data-background="images/timelords-faded.png" data-transition="fade">
-                        <h2>Tip: Be a Time Lord!</h2>
-                        <ul>
-                            <li>Utilize the power of complete history.</li>
-                            <li>Be careful when changing history.</li>
-                            <li>Understand your tools.</li>
-                        </ul>
-                        <aside class="notes">
-                            Discuss how IntelliJ can be helpful, but most of the power is in the CLI.
-                        </aside>
                     </section>
                     <section>
                         <h2>Question 1. What changes are on this branch?</h2>
@@ -450,7 +449,7 @@
                             <li>Alias anything you use often! </li>
                             <li><code>git-helper</code> in PATH can be called by <code>git helper</code>.</li>
                             <li>Example: when-merged - the previous ridiculous command</li>
-                            <li>See my <a href="http://github.com/briehman/dotfiles/">dotfiles</a> for samples.</li>
+                            <li>See my <a href="https://github.com/briehman/dotfiles/blob/master/.gitconfig">dotfiles</a> for samples.</li>
                         </ul>
                     </section>
                     <section>
@@ -496,6 +495,14 @@
                                 and <code>merge</code> both have one.
                             </li>
                         <ul>
+                    </section>
+                    <section data-background="#339933">
+                        <h2>Tip: <b>Re</b>use <b>Re</b>corded <b>Re</b>solution</h2>
+                        <ul>
+                            <li>Git can remember your resolved conflict resolutions and automatically reapply them.</li>
+                            <li>This is great when rebasing or if there are merge conflicts.</li>
+                            <li><code>git config --global rerere.enabled 1</code></li>
+                        </ul>
                     </section>
                 </section>
                 <section>
